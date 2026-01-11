@@ -48,5 +48,4 @@ blob-report/
 # temp files
 *.swp
 *.tmp
-
 .vercel
