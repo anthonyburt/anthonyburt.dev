@@ -22,9 +22,9 @@
       <strong>Automation Modernization</strong>
       <ul>
         <li><strong>Problem:</strong> Legacy automation frameworks made test creation and maintenance slow, especially for UI locators.</li>
-        <li><strong>Approach:</strong> Introduced AI-assisted tooling for self-healing locators and converted existing suites from a legacy Java framework to a modern Java-based approach.</li>
+        <li><strong>Approach:</strong> Migrated suites from a legacy, internally structured Java framework to a standardized Java toolset to improve maintainability and consistency.</li>
         <li><strong>Outcome:</strong> Migrated 600 UI tests and 1,400 API tests in 3 months, improving maintainability and test creation speed.</li>
-        <li><strong>Tech:</strong> Java, Playwright, AI-assisted automation, UI/API testing.</li>
+        <li><strong>Tech:</strong> Java, Selenium, JUnit, TestNG, AssertJ, RestAssured, Retrofit, DataFaker, ReportPortal, UI/API testing.</li>
       </ul>
     </li>
     <li id="proj-quality-strategy">
@@ -33,7 +33,7 @@
         <li><strong>Problem:</strong> Quality checks were inconsistent across teams and hard to scale.</li>
         <li><strong>Approach:</strong> Defined a unified quality strategy, automation coverage targets, and CI/CD gates that every team adopted.</li>
         <li><strong>Outcome:</strong> Reduced escaped defects by ~25% while improving release confidence.</li>
-        <li><strong>Tech:</strong> CI/CD pipelines, Playwright, static analysis tooling.</li>
+        <li><strong>Tech:</strong> CI/CD pipelines (Jenkins, GitLab pipelines), Selenium, static analysis tooling.</li>
       </ul>
     </li>
     <li id="proj-observability-standards">
