@@ -4,13 +4,14 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "build": "npm run lint && npm run format && npm run test && astro build",
+    "build": "astro build",
     "preview": "astro preview",
     "test": "playwright test",
     "lint": "eslint .",
     "format": "prettier --write .",
     "astro": "astro",
-    "ci": "npm run lint && npm run format && npm run test && astro build"
+    "ci": "npm run lint && npm run format && npm run test && astro build",
+    "build:local": "npm run lint && npm run format && npm run test && astro build"
   },
   "dependencies": {
     "astro": "^5.16.8"
