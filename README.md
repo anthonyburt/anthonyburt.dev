@@ -1,5 +1,7 @@
 # anthonyburt.dev
 
+[![Vercel](https://img.shields.io/badge/Vercel-Live-000000?style=flat&logo=vercel&logoColor=white)](https://anthonyburt-dev.vercel.app/)
+
 Personal resume and portfolio site built with Astro. The goal is a fast, accessible, and highly readable single-page experience that highlights experience, projects, skills, and interests.
 
 ## Overview
@@ -17,6 +19,8 @@ npm run dev
 
 The dev server runs at `http://localhost:4321`.
 
-## Deployment (TBD)
+## Deployment
 
-Deployment details will be added once hosting is selected (e.g., Vercel or Netlify).
+Currently deployed on Vercel as a static site. As the site grows, hosting may move elsewhere.
+
+Live URL: https://anthonyburt-dev.vercel.app/ (temporary until a custom domain is registered).
