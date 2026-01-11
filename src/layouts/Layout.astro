@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <meta
+      name="description"
+      content="Engineering manager specializing in quality engineering, automation, and reliable delivery."
+    />
+    <meta property="og:title" content="Anthony Burt - Quality Engineering Leadership" />
+    <meta
+      property="og:description"
+      content="Quality engineering leadership, automation strategy, and delivery confidence at scale."
+    />
+    <meta property="og:type" content="website" />
+    <title>Anthony Burt - Quality Engineering Leadership</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    color-scheme: dark;
+    --ink: #f5f2f1;
+    --muted: #b0a3a8;
+    --canvas: #0f0b0c;
+    --surface: #161116;
+    --surface-alt: #120d12;
+    --line: #2f2428;
+    --accent: #ff3d9a;
+    --accent-strong: #e11d7a;
+    --accent-warm: #22d3ee;
+    --accent-deep: #ff8cc8;
+    --shadow: 0 16px 32px rgba(0, 0, 0, 0.4);
+    --radius-lg: 24px;
+    --radius-md: 16px;
+    --radius-sm: 10px;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100%;
+    font-family: 'Source Sans 3', 'Segoe UI', sans-serif;
+    color: var(--ink);
+    background: var(--canvas);
+    line-height: 1.6;
+  }
+
+  img {
+    max-width: 100%;
+    display: block;
+  }
+
+  a {
+    color: inherit;
+  }
+
+  ::selection {
+    background: rgba(255, 61, 154, 0.3);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+</style>

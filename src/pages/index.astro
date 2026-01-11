@@ -1,0 +1,1240 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Experience from '../content/experience.md';
+import Projects from '../content/projects.md';
+
+const site = {
+  name: 'Anthony Burt',
+  role: 'Engineering Manager | Quality Engineering, Automation & Reliability',
+  location: 'Atlanta, GA',
+  email: 'anthonyburt@gmail.com',
+  linkedIn: 'https://www.linkedin.com/in/burtanthony/',
+  github: 'https://github.com/anthonyburt',
+};
+---
+
+<Layout>
+  <a class="skip-link" href="#summary">Skip to content</a>
+  <div class="page">
+    <div class="backdrop" aria-hidden="true">
+      <span class="shape shape-a"></span>
+      <span class="shape shape-b"></span>
+      <span class="shape shape-c"></span>
+      <span class="shape shape-d"></span>
+    </div>
+    <header class="site-header">
+      <div class="container header-inner">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <div class="brand-text">
+            <p class="brand-name">{site.name}</p>
+            <p class="brand-role">{site.role}</p>
+            <p class="brand-meta">
+              <a class="meta-link" href={`mailto:${site.email}`}>
+                <span class="icon" aria-hidden="true">
+                  <img class="icon-img" src="/logos/gmail.svg" alt="" />
+                </span>
+                {site.email}
+              </a>
+              <span class="meta-divider" aria-hidden="true">•</span>
+              <span>{site.location}</span>
+            </p>
+          </div>
+        </div>
+        <nav class="site-nav" aria-label="Primary">
+          <a href="#summary" data-section="summary">Summary</a>
+          <a href="#experience" data-section="experience">Experience</a>
+          <a href="#projects" data-section="projects">Projects</a>
+          <a href="#skills" data-section="skills">Skills</a>
+          <a href="#interests" data-section="interests">Interests</a>
+          <a href="#contact" data-section="contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section id="summary" class="section hero">
+        <div class="container hero-grid">
+          <div class="hero-copy reveal" style="--delay: 0.05s">
+            <h1>Quality strategy for scalable delivery</h1>
+            <p class="hero-role">
+              I build quality systems that scale, reduce risk, and keep teams shipping.
+            </p>
+            <div class="hero-action-row">
+              <div class="hero-actions">
+                <a class="button ghost" href="#contact">Start a conversation</a>
+                <a class="button ghost" href="#projects">View projects</a>
+              </div>
+              <img
+                class="hero-avatar-inline"
+                src="/logos/avatar.jpeg"
+                alt="Portrait of Anthony Burt"
+              />
+            </div>
+            <div class="hero-highlights">
+              <div>
+                <p class="highlight-value">25%</p>
+                <p class="highlight-label">
+                  Fewer escaped defects through automation and quality gates
+                </p>
+              </div>
+              <div>
+                <p class="highlight-value">50+</p>
+                <p class="highlight-label">
+                  50+ annual releases for flagship platform; cross-team advisor
+                </p>
+              </div>
+              <div>
+                <p class="highlight-value">8</p>
+                <p class="highlight-label">Cross-functional teams aligned on quality standards</p>
+              </div>
+            </div>
+          </div>
+          <div class="hero-visual reveal" style="--delay: 0.12s" aria-hidden="true">
+            <div class="hero-frame">
+              <img class="hero-avatar" src="/logos/avatar.jpeg" alt="" aria-hidden="true" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="experience" class="section section-alt">
+        <div class="container reveal" style="--delay: 0.1s">
+          <div class="section-header">
+            <h2>Experience</h2>
+            <p>Leadership, scope, and measurable impact across platforms and teams.</p>
+          </div>
+          <div class="content-card experience-card">
+            <Experience />
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="section">
+        <div class="container reveal" style="--delay: 0.12s">
+          <div class="section-header">
+            <h2>Projects</h2>
+            <p>Selected work focused on reliability, scale, and developer experience.</p>
+          </div>
+          <div class="content-card projects-card">
+            <Projects />
+          </div>
+        </div>
+      </section>
+
+      <section id="skills" class="section section-alt">
+        <div class="container reveal" style="--delay: 0.14s">
+          <div class="section-header">
+            <h2>Skills / Toolbox</h2>
+            <p>Core strengths organized by domain for quick scanning.</p>
+          </div>
+          <div class="skills-grid">
+            <div class="skill-card">
+              <h3>Languages</h3>
+              <ul>
+                <li>Java</li>
+                <li>.NET</li>
+                <li>SQL (Postgres, DocumentDB)</li>
+              </ul>
+            </div>
+            <div class="skill-card">
+              <h3>Testing</h3>
+              <ul>
+                <li>UI, API, integration testing</li>
+                <li>Playwright / Selenium</li>
+                <li>Contract testing</li>
+                <li>Security testing workflows</li>
+              </ul>
+            </div>
+            <div class="skill-card">
+              <h3>CI/CD</h3>
+              <ul>
+                <li>Pipeline design</li>
+                <li>Release readiness</li>
+                <li>Test reporting</li>
+                <li>Static analysis gates</li>
+              </ul>
+            </div>
+            <div class="skill-card">
+              <h3>Cloud</h3>
+              <ul>
+                <li>AWS</li>
+                <li>Observability strategy</li>
+                <li>SLI / SLO / SLA design</li>
+                <li>Monitoring and alerting</li>
+              </ul>
+            </div>
+            <div class="skill-card">
+              <h3>Tools</h3>
+              <ul>
+                <li>Grafana</li>
+                <li>CI/CD tooling</li>
+                <li>Test frameworks</li>
+                <li>AI-assisted automation</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="interests" class="section">
+        <div class="container reveal" style="--delay: 0.16s">
+          <div class="section-header">
+            <h2>Interests</h2>
+            <p>What keeps me curious beyond the roadmap.</p>
+          </div>
+          <div class="interest-grid">
+            <div class="interest-card">
+              <h3>Platform strategy</h3>
+              <p>
+                Designing scalable foundations that balance speed, reliability, and long-term
+                maintainability.
+              </p>
+            </div>
+            <div class="interest-card">
+              <h3>Human-centered systems</h3>
+              <p>
+                Tooling and automation that reduce cognitive load for engineering and operations
+                teams.
+              </p>
+            </div>
+            <div class="interest-card">
+              <h3>Leadership coaching</h3>
+              <p>
+                Growing senior engineers through structured feedback, planning rituals, and clear
+                expectations.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section section-alt">
+        <div class="container reveal" style="--delay: 0.18s">
+          <div class="section-header">
+            <h2>Contact</h2>
+            <p>Open to roles that value technical depth, calm leadership, and clear outcomes.</p>
+          </div>
+          <div class="contact-card">
+            <div>
+              <h3>Let's connect</h3>
+              <p>
+                Email is the fastest path. I reply within 1-2 business days and enjoy talking about
+                reliability, platform roadmaps, and scaling teams.
+              </p>
+            </div>
+            <div class="contact-links">
+              <a class="button ghost" href={`mailto:${site.email}`}>
+                <span class="icon" aria-hidden="true">
+                  <img class="icon-img" src="/logos/gmail.svg" alt="" />
+                </span>
+                Email me
+              </a>
+              <a class="button ghost" href={site.linkedIn}>
+                <span class="icon" aria-hidden="true">
+                  <img class="icon-img" src="/logos/linkedin.svg" alt="" />
+                </span>
+                LinkedIn
+              </a>
+              <a class="button ghost" href={site.github}>
+                <span class="icon" aria-hidden="true">
+                  <img class="icon-img" src="/logos/github.svg" alt="" />
+                </span>
+                GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script type="module" src="/nav-spy.js"></script>
+</Layout>
+
+<style>
+  .page {
+    position: relative;
+    overflow-x: clip;
+    overflow-y: visible;
+  }
+
+  .page::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(circle at 20% 12%, rgba(255, 61, 154, 0.16), transparent 55%),
+      radial-gradient(circle at 80% 78%, rgba(34, 211, 238, 0.14), transparent 58%);
+    opacity: 0.4;
+    z-index: 0;
+  }
+
+  .page::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image: radial-gradient(
+      circle at 1px 1px,
+      rgba(245, 242, 241, 0.08) 1px,
+      transparent 0
+    );
+    background-size: 3px 3px;
+    opacity: 0.06;
+    z-index: 2;
+    mix-blend-mode: soft-light;
+  }
+
+  .backdrop {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+  }
+
+  .backdrop::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(
+      circle at 1px 1px,
+      rgba(244, 245, 247, 0.16) 1px,
+      transparent 0
+    );
+    background-size: 18px 18px;
+    opacity: 0.07;
+  }
+
+  .backdrop::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(135deg, rgba(255, 61, 154, 0.12), transparent 60%),
+      linear-gradient(215deg, rgba(34, 211, 238, 0.1), transparent 55%);
+    opacity: 0.5;
+    transform: skewY(-6deg) scale(1.12);
+    transform-origin: top center;
+  }
+
+  .shape {
+    position: absolute;
+    border-radius: 18px;
+    opacity: 0.18;
+    transform: rotate(-10deg);
+    clip-path: polygon(0 0, 100% 6%, 92% 100%, 0 94%);
+  }
+
+  .shape-a {
+    width: 360px;
+    height: 360px;
+    top: -120px;
+    right: -80px;
+    background: linear-gradient(120deg, rgba(255, 61, 154, 0.45), transparent 70%);
+  }
+
+  .shape-b {
+    width: 420px;
+    height: 420px;
+    bottom: 10%;
+    left: -120px;
+    background: linear-gradient(130deg, rgba(34, 211, 238, 0.4), transparent 70%);
+  }
+
+  .shape-c {
+    width: 240px;
+    height: 240px;
+    top: 40%;
+    left: 55%;
+    background: linear-gradient(120deg, rgba(255, 61, 154, 0.32), transparent 70%);
+  }
+
+  .shape-d {
+    width: 260px;
+    height: 260px;
+    top: 65%;
+    right: 6%;
+    background: linear-gradient(120deg, rgba(34, 211, 238, 0.28), transparent 70%);
+  }
+
+  .skip-link {
+    position: absolute;
+    left: -999px;
+    top: 16px;
+    background: var(--accent-strong);
+    color: white;
+    padding: 8px 12px;
+    border-radius: var(--radius-sm);
+    z-index: 10;
+  }
+
+  .skip-link:focus {
+    left: 16px;
+  }
+
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    background: rgba(15, 11, 12, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(245, 242, 241, 0.08);
+  }
+
+  .container {
+    width: min(1120px, 92vw);
+    margin: 0 auto;
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 0;
+    gap: 24px;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .brand-mark {
+    width: 14px;
+    height: 42px;
+    border-radius: 999px;
+    background: linear-gradient(180deg, rgba(255, 61, 154, 0.7), rgba(34, 211, 238, 0.7));
+    box-shadow:
+      0 0 0 2px rgba(245, 242, 241, 0.16),
+      0 0 10px rgba(255, 61, 154, 0.25);
+  }
+
+  .brand-name {
+    margin: 0;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  .brand-role {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+
+  .brand-meta {
+    margin: 4px 0 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+
+  .meta-link {
+    text-decoration: none;
+    color: inherit;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .meta-link:hover,
+  .meta-link:focus {
+    color: var(--accent-deep);
+  }
+
+  .meta-divider {
+    color: rgba(244, 245, 247, 0.24);
+  }
+
+  .icon {
+    display: inline-flex;
+    width: 16px;
+    height: 16px;
+    color: currentColor;
+  }
+
+  .icon svg {
+    width: 100%;
+    height: 100%;
+    fill: currentColor;
+  }
+
+  .icon-img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    filter: brightness(0) invert(1);
+  }
+
+  .site-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    font-size: 0.95rem;
+    position: relative;
+  }
+
+  .site-nav::before,
+  .site-nav::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 18px;
+    pointer-events: none;
+    opacity: 0;
+  }
+
+  .site-nav::before {
+    left: 0;
+    background: linear-gradient(90deg, rgba(15, 11, 12, 0.9), transparent);
+  }
+
+  .site-nav::after {
+    right: 0;
+    background: linear-gradient(270deg, rgba(15, 11, 12, 0.9), transparent);
+  }
+
+  .site-nav.is-scrollable::before {
+    opacity: 1;
+  }
+
+  .site-nav.is-scrollable::after {
+    opacity: 1;
+  }
+
+  .site-nav a {
+    text-decoration: none;
+    color: var(--ink);
+    position: relative;
+    padding-bottom: 4px;
+  }
+
+  .site-nav a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent);
+    transition: width 0.2s ease;
+  }
+
+  .site-nav a:hover::after,
+  .site-nav a:focus::after,
+  .site-nav a.active::after {
+    width: 100%;
+  }
+
+  .section {
+    padding: 56px 0;
+    position: relative;
+    scroll-margin-top: 88px;
+  }
+
+  .section:last-of-type {
+    padding-bottom: 8px;
+  }
+
+  #contact.section {
+    padding-bottom: 12px;
+  }
+
+  #contact.section::after {
+    content: '';
+    display: block;
+    height: min(24vh, 220px);
+  }
+
+  .section:not(.hero)::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -5%;
+    width: 110%;
+    height: 18px;
+    background-image: radial-gradient(
+      circle at 1px 1px,
+      rgba(245, 242, 241, 0.18) 1px,
+      transparent 0
+    );
+    background-size: 10px 10px;
+    opacity: 0.08;
+    transform: skewY(-2deg);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .section > .container {
+    position: relative;
+    z-index: 2;
+  }
+
+  .section-alt {
+    background: var(--surface-alt);
+  }
+
+  .section-header {
+    margin-bottom: 20px;
+  }
+
+  .section-header h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(1.8rem, 2.2vw, 2.4rem);
+    margin: 0 0 8px;
+  }
+
+  .section-header p {
+    margin: 0;
+    color: var(--muted);
+    max-width: 640px;
+  }
+
+  .hero {
+    padding-top: 40px;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 48px;
+    align-items: center;
+  }
+
+  .hero-copy h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(1.45rem, 2.1vw, 2rem);
+    margin: 0 0 8px;
+  }
+
+  .hero-copy p {
+    margin: 0;
+  }
+
+  .hero-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .hero-role {
+    font-size: 1.1rem;
+    margin-bottom: 0;
+    max-width: 560px;
+  }
+
+  .hero-meta {
+    display: grid;
+    gap: 6px;
+    color: var(--muted);
+    margin-bottom: 18px;
+  }
+
+  .hero-meta p {
+    margin: 0;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+
+  .hero-action-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .hero-avatar-inline {
+    display: none;
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    border-radius: 16px;
+    border: 2px solid rgba(244, 245, 247, 0.14);
+    background: rgba(15, 11, 12, 0.7);
+    box-shadow: 0 10px 18px rgba(0, 0, 0, 0.35);
+  }
+
+  .button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 18px;
+    border-radius: var(--radius-sm);
+    border: 2px solid transparent;
+    text-decoration: none;
+    font-weight: 600;
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease,
+      background 0.2s ease,
+      border-color 0.2s ease,
+      color 0.2s ease;
+  }
+
+  .button.cta {
+    background: var(--accent);
+    color: white;
+    box-shadow: var(--shadow);
+    border-color: rgba(244, 245, 247, 0.2);
+  }
+
+  .button.cta:hover,
+  .button.cta:focus {
+    background: linear-gradient(120deg, var(--accent), var(--accent-warm));
+    transform: translateY(-1px);
+  }
+
+  .button.ghost {
+    border-color: rgba(244, 245, 247, 0.18);
+    background: rgba(21, 25, 36, 0.9);
+  }
+
+  .button.ghost:hover,
+  .button.ghost:focus {
+    border-color: var(--accent);
+    background: linear-gradient(120deg, rgba(255, 61, 154, 0.18), rgba(34, 211, 238, 0.18));
+    color: var(--ink);
+    transform: translateY(-1px);
+  }
+
+  .hero-highlights {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+  }
+
+  .hero-highlights div {
+    background: var(--surface);
+    padding: 12px 14px;
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(244, 245, 247, 0.08);
+  }
+
+  .highlight-value {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 1.6rem;
+    margin: 0 0 6px;
+  }
+
+  .highlight-label {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+
+  .hero-visual {
+    display: grid;
+    gap: 16px;
+    align-content: start;
+  }
+
+  .hero-frame {
+    background: var(--surface);
+    border-radius: var(--radius-lg);
+    border: 2px solid rgba(244, 245, 247, 0.14);
+    padding: 24px;
+    min-height: 320px;
+    display: grid;
+    gap: 12px;
+    box-shadow:
+      0 20px 32px rgba(0, 0, 0, 0.4),
+      -18px 12px 28px rgba(255, 61, 154, 0.16),
+      18px -12px 28px rgba(34, 211, 238, 0.14);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-frame::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(
+      circle at 1px 1px,
+      rgba(244, 245, 247, 0.12) 1px,
+      transparent 0
+    );
+    background-size: 16px 16px;
+    opacity: 0.07;
+    pointer-events: none;
+  }
+
+  .hero-avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 18px;
+    display: block;
+  }
+
+  .hero-block {
+    height: 90px;
+    border-radius: 18px;
+    background: rgba(244, 245, 247, 0.04);
+    border: 1px solid rgba(244, 245, 247, 0.18);
+  }
+
+  .hero-block.accent {
+    background: rgba(255, 61, 154, 0.24);
+    border-color: rgba(255, 61, 154, 0.45);
+  }
+
+  .hero-block.warm {
+    background: rgba(34, 211, 238, 0.22);
+    border-color: rgba(34, 211, 238, 0.45);
+  }
+
+  .hero-note {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+
+  .content-card {
+    background: var(--surface);
+    padding: 22px 26px;
+    border-radius: var(--radius-lg);
+    border: 2px solid rgba(244, 245, 247, 0.14);
+    box-shadow: var(--shadow);
+  }
+
+  .content-card h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    margin-top: 28px;
+    margin-bottom: 12px;
+    padding-top: 18px;
+    border-top: 1px solid rgba(244, 245, 247, 0.12);
+  }
+
+  .content-card h3:first-of-type {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+  }
+
+  .content-card p {
+    margin: 0 0 14px;
+    color: var(--muted);
+  }
+
+  .content-card p:last-of-type {
+    margin-bottom: 0;
+  }
+
+  :global(.content-card .selected-projects) {
+    margin-top: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    align-items: center;
+    font-size: 0.78rem;
+    color: rgba(245, 242, 241, 0.55);
+  }
+
+  :global(.content-card .selected-projects span) {
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 0.62rem;
+    color: rgba(245, 242, 241, 0.5);
+  }
+
+  :global(.content-card .selected-projects a) {
+    color: rgba(245, 242, 241, 0.85);
+    text-decoration: none;
+    border: 1px solid rgba(255, 61, 154, 0.35);
+    border-radius: 999px;
+    padding: 3px 8px;
+    background: rgba(18, 14, 18, 0.85);
+    transition:
+      transform 0.2s ease,
+      border-color 0.2s ease,
+      color 0.2s ease,
+      background 0.2s ease;
+  }
+
+  :global(.content-card .selected-projects a:hover),
+  :global(.content-card .selected-projects a:focus) {
+    color: var(--ink);
+    border-color: rgba(34, 211, 238, 0.45);
+    background: rgba(34, 211, 238, 0.1);
+    transform: translateY(-1px);
+  }
+
+  .content-card p strong {
+    display: inline-block;
+    min-width: 84px;
+    margin-right: 6px;
+    color: var(--accent-deep);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 0.78rem;
+  }
+
+  .content-card ul {
+    margin: 12px 0 0;
+    padding-left: 18px;
+    color: var(--ink);
+  }
+
+  .content-card li {
+    margin-bottom: 8px;
+  }
+
+  .content-card strong {
+    color: var(--ink);
+  }
+
+  :global(.experience-card .experience-list) {
+    display: grid;
+    gap: 18px;
+  }
+
+  :global(.experience-card .experience-item) {
+    background: rgba(21, 17, 22, 0.85);
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(244, 245, 247, 0.12);
+    border-left: 3px solid rgba(255, 61, 154, 0.45);
+    padding: 18px 20px;
+    box-shadow: 0 14px 24px rgba(0, 0, 0, 0.35);
+  }
+
+  :global(.experience-card .experience-item:nth-child(even)) {
+    background: rgba(14, 12, 16, 0.9);
+    border-color: rgba(34, 211, 238, 0.28);
+    border-left-color: rgba(34, 211, 238, 0.5);
+    box-shadow: 0 16px 26px rgba(0, 0, 0, 0.4);
+  }
+
+  :global(.experience-card h3) {
+    margin: 0 0 10px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.05rem;
+  }
+
+  :global(.experience-card .scope-line) {
+    margin: 0 0 12px;
+    color: rgba(245, 242, 241, 0.7);
+  }
+
+  :global(.experience-card ul) {
+    margin: 0 0 12px;
+    padding-left: 0;
+    list-style: none;
+  }
+
+  :global(.experience-card ul li) {
+    margin-bottom: 8px;
+    position: relative;
+    padding-left: 16px;
+  }
+
+  :global(.experience-card ul li::before) {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 6px;
+    height: 6px;
+    border-radius: 999px;
+    background: rgba(255, 61, 154, 0.65);
+  }
+
+  :global(.experience-card .experience-item:nth-child(even) ul li::before) {
+    background: rgba(34, 211, 238, 0.6);
+  }
+
+  :global(.projects-card .project-list ul) {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  :global(.projects-card .project-list > ul) {
+    display: grid;
+    gap: 18px;
+  }
+
+  :global(.projects-card .project-list > ul > li) {
+    background: rgba(21, 17, 22, 0.85);
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(244, 245, 247, 0.12);
+    border-left: 3px solid rgba(255, 61, 154, 0.45);
+    padding: 18px 20px;
+    box-shadow: 0 14px 24px rgba(0, 0, 0, 0.35);
+  }
+
+  :global(.projects-card .project-list > ul > li:nth-child(even)) {
+    background: rgba(14, 12, 16, 0.9);
+    border-color: rgba(34, 211, 238, 0.28);
+    border-left-color: rgba(34, 211, 238, 0.5);
+    box-shadow: 0 16px 26px rgba(0, 0, 0, 0.4);
+  }
+
+  :global(.projects-card .project-list > ul > li > strong) {
+    display: block;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.05rem;
+    letter-spacing: -0.01em;
+    margin-bottom: 10px;
+    color: var(--ink);
+  }
+
+  :global(.projects-card .project-list > ul > li[id]) {
+    scroll-margin-top: 100px;
+  }
+
+  :global(.projects-card .project-list > ul > li > ul) {
+    display: grid;
+    gap: 10px;
+  }
+
+  :global(.projects-card .project-list > ul > li > ul > li) {
+    color: var(--muted);
+  }
+
+  :global(.projects-card .project-list > ul > li > ul > li strong) {
+    display: inline-block;
+    min-width: 80px;
+    margin-right: 6px;
+    color: var(--accent-deep);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 0.72rem;
+    font-weight: 500;
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+  }
+
+  .skill-card {
+    background: var(--surface);
+    padding: 18px;
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(244, 245, 247, 0.08);
+    box-shadow: var(--shadow);
+  }
+
+  .skill-card h3 {
+    margin-top: 0;
+    font-family: 'Space Grotesk', sans-serif;
+  }
+
+  .skill-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 12px 0 0;
+    color: var(--muted);
+  }
+
+  .skill-card li + li {
+    margin-top: 6px;
+  }
+
+  .interest-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+  }
+
+  .interest-card {
+    background: var(--surface);
+    padding: 20px;
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(244, 245, 247, 0.08);
+    box-shadow: var(--shadow);
+  }
+
+  .interest-card h3 {
+    margin-top: 0;
+    font-family: 'Space Grotesk', sans-serif;
+  }
+
+  .interest-card p {
+    color: var(--muted);
+    margin-bottom: 0;
+  }
+
+  .contact-card {
+    background: var(--surface);
+    padding: 22px 26px;
+    border-radius: var(--radius-lg);
+    border: 2px solid rgba(244, 245, 247, 0.14);
+    box-shadow: var(--shadow);
+    display: grid;
+    gap: 20px;
+  }
+
+  .contact-card h3 {
+    margin-top: 0;
+    font-family: 'Space Grotesk', sans-serif;
+  }
+
+  .contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .contact-meta {
+    margin: 0;
+    color: var(--muted);
+  }
+
+  .section-rail a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(12px);
+    animation: fadeIn 0.6s ease forwards;
+    animation-delay: var(--delay, 0s);
+  }
+
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .header-inner {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 2px 0;
+      gap: 8px;
+    }
+
+    .brand-text {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      grid-template-rows: auto auto;
+      align-items: center;
+      column-gap: 10px;
+      row-gap: 2px;
+    }
+
+    .brand-name {
+      grid-column: 1;
+      grid-row: 1;
+    }
+
+    .brand-meta {
+      grid-column: 2;
+      justify-self: end;
+      white-space: nowrap;
+      font-size: 0.78rem;
+      margin: 0;
+      grid-row: 1;
+    }
+
+    .brand-role {
+      grid-column: 1 / -1;
+      grid-row: 2;
+      font-size: 0.8rem;
+    }
+
+    .brand-mark {
+      height: 32px;
+    }
+
+    .site-nav {
+      width: 100%;
+      justify-content: flex-start;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      white-space: nowrap;
+      padding-bottom: 0;
+      gap: 12px;
+      scrollbar-width: none;
+      font-size: 0.85rem;
+    }
+
+    .site-nav::-webkit-scrollbar {
+      display: none;
+    }
+
+    .hero-visual {
+      display: none;
+    }
+
+    .hero-avatar-inline {
+      display: block;
+    }
+
+    .hero-action-row {
+      align-items: flex-start;
+    }
+  }
+
+  @media (max-width: 1020px) {
+    .site-nav {
+      gap: 12px;
+      font-size: 0.9rem;
+    }
+
+    .section {
+      padding: 48px 0;
+    }
+
+    .section:last-of-type {
+      padding-bottom: 8px;
+    }
+
+    #contact.section {
+      padding-bottom: 12px;
+    }
+
+    .hero {
+      padding-top: 36px;
+    }
+
+    .hero-actions {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  @media (max-height: 700px) {
+    .header-inner {
+      padding: 4px 0;
+    }
+
+    .brand-role {
+      font-size: 0.8rem;
+    }
+
+    .brand-meta {
+      font-size: 0.78rem;
+    }
+
+    .site-nav {
+      font-size: 0.85rem;
+    }
+  }
+</style>
