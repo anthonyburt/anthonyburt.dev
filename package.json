@@ -1,15 +1,16 @@
 {
-  "name": "resume-site",
+  "name": "anthonyburt.dev",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "npm run lint && npm run format && npm run test && astro build",
     "preview": "astro preview",
-    "test": "npm run build && playwright test",
+    "test": "playwright test",
     "lint": "eslint .",
     "format": "prettier --write .",
-    "astro": "astro"
+    "astro": "astro",
+    "ci": "npm run lint && npm run format && npm run test && astro build"
   },
   "dependencies": {
     "astro": "^5.16.8"
