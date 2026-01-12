@@ -1,0 +1,60 @@
+---
+interface Props {
+  href: string;
+  variant?: 'cta' | 'ghost';
+  class?: string;
+}
+
+const { href, variant = 'ghost', class: className } = Astro.props;
+---
+
+<a href={href} class:list={['button', variant, className]}>
+  <slot />
+</a>
+
+<style>
+  .button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 18px;
+    border-radius: var(--radius-sm);
+    border: 2px solid transparent;
+    text-decoration: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease,
+      background 0.2s ease,
+      border-color 0.2s ease,
+      color 0.2s ease;
+  }
+
+  .cta {
+    background: var(--accent);
+    color: white;
+    box-shadow: var(--shadow);
+    border-color: rgba(244, 245, 247, 0.2);
+  }
+
+  .cta:hover,
+  .cta:focus {
+    background: linear-gradient(120deg, var(--accent), var(--accent-warm));
+    transform: translateY(-1px);
+  }
+
+  .ghost {
+    border-color: rgba(244, 245, 247, 0.18);
+    background: rgba(21, 25, 36, 0.9);
+  }
+
+  .ghost:hover,
+  .ghost:focus {
+    border-color: var(--accent);
+    background: linear-gradient(120deg, rgba(255, 61, 154, 0.18), rgba(34, 211, 238, 0.18));
+    color: var(--ink);
+    transform: translateY(-1px);
+  }
+</style>

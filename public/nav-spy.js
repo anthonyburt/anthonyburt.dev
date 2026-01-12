@@ -1,20 +1,19 @@
 window.__navSpyLoaded = true;
 window.__navSpyReady = false;
 
-const initNavSpy = (attempt = 0) => {
+const initNavSpy = () => {
   const nav = document.querySelector('.site-nav');
+  const header = document.querySelector('.site-header');
   const navLinks = document.querySelectorAll('.site-nav a[data-section]');
   const sections = Array.from(navLinks)
     .map((link) => {
-      const targetId = link.dataset.section || link.getAttribute('href')?.slice(1);
-      return targetId ? document.getElementById(targetId) : null;
+      const id = link.dataset.section || link.getAttribute('href')?.slice(1);
+      return id ? document.getElementById(id) : null;
     })
     .filter(Boolean);
 
   if (!navLinks.length || !sections.length) {
-    if (attempt < 10) {
-      window.requestAnimationFrame(() => initNavSpy(attempt + 1));
-    }
+    window.requestAnimationFrame(initNavSpy);
     return;
   }
 
@@ -37,73 +36,43 @@ const initNavSpy = (attempt = 0) => {
     nav.classList.toggle('is-scrollable', canScroll && !atStart);
   };
 
+  const updateScrollOffset = () => {
+    if (!header) return;
+    const height = header.getBoundingClientRect().height;
+    document.documentElement.style.setProperty('--scroll-offset', `${height + 12}px`);
+  };
+
   let ticking = false;
   let lockId = null;
   let lockUntil = 0;
 
   const updateActive = () => {
-    if (window.scrollY <= window.innerHeight * 0.05) {
-      setActive('summary');
-      ticking = false;
-      return;
-    }
-
     if (lockId && Date.now() < lockUntil) {
       setActive(lockId);
       ticking = false;
       return;
     }
 
-    const thresholdY = window.innerHeight * 0.1;
-    let current = sections[0].id;
-    const visible = sections
-      .map((section) => {
-        const rect = section.getBoundingClientRect();
-        const visibleHeight = Math.max(
-          0,
-          Math.min(rect.bottom, window.innerHeight) - Math.max(rect.top, 0),
-        );
-        return { section, rect, visibleHeight };
-      })
-      .filter(
-        ({ rect, visibleHeight }) =>
-          rect.bottom > 0 && rect.top < window.innerHeight && visibleHeight > 0,
-      );
-
-    if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 2) {
-      setActive('contact');
+    if (window.scrollY <= window.innerHeight * 0.05) {
+      setActive('summary');
       ticking = false;
       return;
     }
 
-    if (visible.length) {
-      const bufferY = window.innerHeight * 0.25;
-      const eligible = visible.filter(({ rect }) => rect.top <= thresholdY + bufferY);
-      const nonContact = eligible.filter(({ section }) => section.id !== 'contact');
-      const pickClosestBelow = (items) =>
-        items.reduce((best, next) => (next.rect.top > best.rect.top ? next : best));
+    const thresholdY = window.innerHeight * 0.5;
+    let current = sections[0].id;
 
-      if (nonContact.length) {
-        current = pickClosestBelow(nonContact).section.id;
-      } else if (eligible.length) {
-        current = pickClosestBelow(eligible).section.id;
+    for (const section of sections) {
+      const rect = section.getBoundingClientRect();
+      if (rect.top <= thresholdY) {
+        current = section.id;
       } else {
-        const closest = visible.reduce((best, next) => {
-          const bestDelta = Math.abs(best.rect.top - thresholdY);
-          const nextDelta = Math.abs(next.rect.top - thresholdY);
-          return nextDelta < bestDelta ? next : best;
-        });
-        current = closest.section.id;
+        break;
       }
-    } else {
-      const threshold = window.scrollY + thresholdY;
-      for (const section of sections) {
-        if (section.offsetTop <= threshold) {
-          current = section.id;
-        } else {
-          break;
-        }
-      }
+    }
+
+    if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2) {
+      current = 'contact';
     }
 
     setActive(current);
@@ -126,6 +95,7 @@ const initNavSpy = (attempt = 0) => {
     () => {
       window.requestAnimationFrame(updateActive);
       window.requestAnimationFrame(updateNavFade);
+      window.requestAnimationFrame(updateScrollOffset);
     },
     { passive: true },
   );
@@ -136,13 +106,31 @@ const initNavSpy = (attempt = 0) => {
     });
   }
 
+  const setLock = (target) => {
+    lockId = target;
+    lockUntil = Date.now() + 500;
+    setActive(target);
+    window.setTimeout(() => {
+      if (Date.now() >= lockUntil) {
+        updateActive();
+      }
+    }, 520);
+  };
+
   window.addEventListener('hashchange', () => {
     const target = window.location.hash.replace('#', '');
     if (target) {
-      lockId = target;
-      lockUntil = Date.now() + 400;
-      setActive(target);
+      setLock(target);
     }
+  });
+
+  navLinks.forEach((link) => {
+    link.addEventListener('click', () => {
+      const target = link.dataset.section;
+      if (target) {
+        setLock(target);
+      }
+    });
   });
 
   if (window.location.hash) {
@@ -152,8 +140,13 @@ const initNavSpy = (attempt = 0) => {
   }
 
   updateNavFade();
+  updateScrollOffset();
   updateActive();
   window.__navSpyReady = true;
 };
 
-initNavSpy();
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initNavSpy);
+} else {
+  initNavSpy();
+}

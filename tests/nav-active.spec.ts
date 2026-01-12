@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test';
 
-const sections = ['summary', 'skills', 'interests', 'contact'];
+const sections = ['summary', 'experience', 'projects', 'skills', 'interests', 'contact'];
 
 const expectActive = async (page, id: string) => {
   await page.waitForFunction((sectionId) => {
@@ -16,9 +16,11 @@ const scrollToSection = async (page, id: string) => {
   await page.evaluate((sectionId) => {
     const el = document.getElementById(sectionId);
     if (el) {
-      el.scrollIntoView({ behavior: 'instant', block: 'start' });
+      el.scrollIntoView({ behavior: 'instant', block: 'center' });
     }
   }, id);
+  // Give IntersectionObserver time to fire
+  await page.waitForTimeout(200);
 };
 
 test.describe('nav active state', () => {

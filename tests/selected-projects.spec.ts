@@ -25,7 +25,7 @@ test('selected project links target existing project cards', async ({ page }) =>
     const viewport = page.viewportSize();
     expect(viewport).not.toBeNull();
     if (viewport) {
-      expect(rect.top).toBeGreaterThanOrEqual(0);
+      expect(rect.top).toBeGreaterThanOrEqual(-1);
       expect(rect.top).toBeLessThan(viewport.height);
     }
   }

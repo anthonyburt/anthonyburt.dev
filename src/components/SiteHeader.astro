@@ -1,0 +1,219 @@
+---
+const { site } = Astro.props;
+---
+
+<header class="site-header">
+  <div class="container header-inner">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <div class="brand-text">
+        <p class="brand-name">{site.name}</p>
+        <p class="brand-role">{site.role}</p>
+        <p class="brand-meta">
+          <a class="meta-link" href={`mailto:${site.email}`}>
+            <span class="icon" aria-hidden="true">
+              <img class="icon-img" src="/logos/gmail.svg" alt="" />
+            </span>
+            {site.email}
+          </a>
+          <span class="meta-divider" aria-hidden="true">›</span>
+          <span>{site.location}</span>
+        </p>
+      </div>
+    </div>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="#summary" data-section="summary">Summary</a>
+      <a href="#experience" data-section="experience">Experience</a>
+      <a href="#projects" data-section="projects">Projects</a>
+      <a href="#skills" data-section="skills">Skills</a>
+      <a href="#interests" data-section="interests">Interests</a>
+      <a href="#contact" data-section="contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    background: rgba(15, 11, 12, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(245, 242, 241, 0.08);
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 0;
+    gap: 24px;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .brand-mark {
+    width: 14px;
+    height: 42px;
+    border-radius: 999px;
+    background: linear-gradient(180deg, rgba(255, 61, 154, 0.7), rgba(34, 211, 238, 0.7));
+    box-shadow:
+      0 0 0 2px rgba(245, 242, 241, 0.16),
+      0 0 10px rgba(255, 61, 154, 0.25);
+  }
+
+  .brand-name {
+    margin: 0;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  .brand-role {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+
+  .brand-meta {
+    margin: 4px 0 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+
+  .meta-link {
+    text-decoration: none;
+    color: inherit;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .meta-link:hover,
+  .meta-link:focus {
+    color: var(--accent-deep);
+  }
+
+  .meta-divider {
+    color: rgba(244, 245, 247, 0.24);
+  }
+
+  .icon {
+    display: inline-flex;
+    width: 16px;
+    height: 16px;
+    color: currentColor;
+  }
+
+  .icon svg {
+    width: 100%;
+    height: 100%;
+    fill: currentColor;
+  }
+
+  .icon-img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    filter: brightness(0) invert(1);
+  }
+
+  .site-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    font-size: 0.95rem;
+    position: relative;
+  }
+
+  .site-nav::before,
+  .site-nav::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 18px;
+    pointer-events: none;
+    opacity: 0;
+  }
+
+  .site-nav::before {
+    left: 0;
+    background: linear-gradient(90deg, rgba(15, 11, 12, 0.9), transparent);
+  }
+
+  .site-nav::after {
+    right: 0;
+    background: linear-gradient(270deg, rgba(15, 11, 12, 0.9), transparent);
+  }
+
+  .site-nav.is-scrollable::before {
+    opacity: 1;
+  }
+
+  .site-nav.is-scrollable::after {
+    opacity: 1;
+  }
+
+  .site-nav a {
+    text-decoration: none;
+    color: var(--ink);
+    position: relative;
+    padding-bottom: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: color 0.1s ease-out, transform 0.1s ease-out, letter-spacing 0.1s ease-out;
+  }
+
+  .site-nav a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent);
+    transition: width 0.2s ease;
+  }
+
+  .site-nav a:focus-visible::after,
+  .site-nav a.active::after {
+    width: 100%;
+  }
+
+  @media (hover: hover) {
+    .site-nav a:hover {
+      color: var(--accent-deep);
+      transform: translateY(-1px) scale(1.06) skewX(-1deg);
+      letter-spacing: 0.02em;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .site-header {
+      padding: 0 16px;
+    }
+
+    .header-inner {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .site-nav {
+      width: 100%;
+      overflow-x: auto;
+      padding-bottom: 8px;
+      -webkit-overflow-scrolling: touch;
+      flex-wrap: nowrap;
+    }
+  }
+</style>

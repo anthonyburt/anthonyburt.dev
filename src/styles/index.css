@@ -1,0 +1,372 @@
+.page {
+    position: relative;
+    overflow-x: clip;
+    overflow-y: visible;
+  }
+
+  .page::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(circle at 20% 12%, rgba(255, 61, 154, 0.16), transparent 55%),
+      radial-gradient(circle at 80% 78%, rgba(34, 211, 238, 0.14), transparent 58%);
+    opacity: 0.4;
+    z-index: 0;
+  }
+
+  .page::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image: radial-gradient(
+      circle at 1px 1px,
+      rgba(245, 242, 241, 0.08) 1px,
+      transparent 0
+    );
+    background-size: 3px 3px;
+    opacity: 0.06;
+    z-index: 2;
+    mix-blend-mode: soft-light;
+  }
+
+  .backdrop {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+  }
+
+  .backdrop::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(
+      circle at 1px 1px,
+      rgba(244, 245, 247, 0.16) 1px,
+      transparent 0
+    );
+    background-size: 18px 18px;
+    opacity: 0.07;
+  }
+
+  .backdrop::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(135deg, rgba(255, 61, 154, 0.12), transparent 60%),
+      linear-gradient(215deg, rgba(34, 211, 238, 0.1), transparent 55%);
+    opacity: 0.5;
+    transform: skewY(-6deg) scale(1.12);
+    transform-origin: top center;
+  }
+
+  .shape {
+    position: absolute;
+    border-radius: 18px;
+    opacity: 0.18;
+    transform: rotate(-10deg);
+    clip-path: polygon(0 0, 100% 6%, 92% 100%, 0 94%);
+  }
+
+  .shape-a {
+    width: 360px;
+    height: 360px;
+    top: -120px;
+    right: -80px;
+    background: linear-gradient(120deg, rgba(255, 61, 154, 0.45), transparent 70%);
+  }
+
+  .shape-b {
+    width: 420px;
+    height: 420px;
+    bottom: 10%;
+    left: -120px;
+    background: linear-gradient(130deg, rgba(34, 211, 238, 0.4), transparent 70%);
+  }
+
+  .shape-c {
+    width: 240px;
+    height: 240px;
+    top: 40%;
+    left: 55%;
+    background: linear-gradient(120deg, rgba(255, 61, 154, 0.32), transparent 70%);
+  }
+
+  .shape-d {
+    width: 260px;
+    height: 260px;
+    top: 65%;
+    right: 6%;
+    background: linear-gradient(120deg, rgba(34, 211, 238, 0.28), transparent 70%);
+  }
+
+  .skip-link {
+    position: absolute;
+    left: -999px;
+    top: 16px;
+    background: var(--accent-strong);
+    color: white;
+    padding: 8px 12px;
+    border-radius: var(--radius-sm);
+    z-index: 10;
+  }
+
+  .skip-link:focus {
+    left: 16px;
+  }
+
+  .container {
+    width: min(1120px, 92vw);
+    margin: 0 auto;
+  }
+
+  .icon {
+    display: inline-flex;
+    width: 16px;
+    height: 16px;
+    color: currentColor;
+  }
+
+  .icon-img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    filter: brightness(0) invert(1);
+  }
+
+  .section-alt {
+    background: var(--surface-alt);
+  }
+
+
+  /* Content Card (Experience/Projects wrappers) */
+  .content-card {
+    background: var(--surface);
+    border: 1px solid rgba(244, 245, 247, 0.08);
+    border-radius: 24px;
+    padding: 22px 26px;
+    box-shadow: 0 16px 32px 0 rgba(0, 0, 0, 0.4);
+  }
+
+  /* Deep styles for Markdown Content (Experience/Projects) */
+  .content-card h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.17rem;
+    font-weight: 700;
+    color: rgb(245, 242, 241);
+    margin: 1.25rem 0 0.65rem;
+  }
+
+  .content-card h3:first-of-type {
+    margin-top: 0;
+  }
+
+  .content-card ul {
+    color: rgb(245, 242, 241);
+    padding-left: 2.5rem; /* 40px */
+    margin: 1rem 0;
+  }
+
+  .content-card li {
+    margin-bottom: 0.5rem;
+  }
+
+  .experience-item {
+    background: rgba(21, 17, 22, 0.85);
+    border: 1px solid rgba(244, 245, 247, 0.12);
+    border-left: 3px solid rgba(255, 61, 154, 0.45);
+    border-radius: 24px;
+    padding: 18px 20px;
+    margin-bottom: 24px;
+    box-shadow: 0 14px 24px 0 rgba(0, 0, 0, 0.35);
+  }
+
+  /* Alternating Colors for Experience (Even = Cyan) */
+  .experience-item:nth-of-type(even) {
+    border-left-color: rgba(34, 211, 238, 0.5);
+  }
+
+  .scope-line {
+    color: rgba(245, 242, 241, 0.7);
+    font-size: 1rem; /* 16px */
+    font-weight: 400;
+    margin-bottom: 12px;
+    font-style: normal;
+  }
+
+  .content-card li {
+    margin-bottom: 0.5rem;
+  }
+
+  /* Experience Tags (Pills) */
+  .selected-projects {
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.8rem;
+  }
+
+  .selected-projects span {
+    text-transform: uppercase;
+    color: rgba(245, 242, 241, 0.5);
+    font-size: 0.62rem; /* ~9.92px */
+    font-weight: 400;
+    margin-right: 4px;
+    letter-spacing: 0.086em; /* ~1.38px */
+  }
+
+  .selected-projects a {
+    text-decoration: none;
+    background: rgba(18, 14, 18, 0.85);
+    color: rgba(245, 242, 241, 0.85);
+    border: 1px solid rgba(255, 61, 154, 0.35);
+    border-radius: 999px;
+    padding: 3px 10px;
+    transition: all 0.2s ease;
+  }
+
+  .selected-projects a:hover {
+    background: rgba(255, 61, 154, 0.15);
+    border-color: var(--accent);
+    color: white;
+  }
+
+  /* Projects List Styling */
+  .project-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  
+  .project-list > ul > li {
+    background: rgba(21, 17, 22, 0.85);
+    border: 1px solid rgba(244, 245, 247, 0.12);
+    border-left: 3px solid rgba(255, 61, 154, 0.45); /* Default Pink (Odd) */
+    border-radius: 24px;
+    padding: 18px 20px;
+    box-shadow: 0 14px 24px 0 rgba(0, 0, 0, 0.35);
+    scroll-margin-top: var(--scroll-offset, 96px);
+  }
+
+  /* Alternating Colors for Projects (Even = Cyan) */
+  .project-list > ul > li:nth-child(even) {
+    border-left-color: rgba(34, 211, 238, 0.5);
+  }
+
+  /* Project Title */
+  .project-list > ul > li > strong {
+    display: block;
+    color: rgb(245, 242, 241);
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.05rem; /* ~16.8px */
+    font-weight: 700;
+    margin-bottom: 10px;
+    letter-spacing: normal;
+    text-transform: none; /* Reset if inherited */
+    padding-top: 0;
+  }
+
+  /* Project sub-lists (Problem/Approach/etc) */
+  .project-list ul ul {
+    display: grid;
+    gap: 8px;
+    margin-top: 12px;
+  }
+
+  .project-list ul ul li {
+    display: grid;
+    grid-template-columns: 80px 1fr; /* Fixed width label similar to dashboard */
+    gap: 12px;
+    margin: 0;
+    font-size: 0.95rem;
+  }
+
+  .project-list strong {
+    color: rgb(255, 140, 200);
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    align-self: baseline;
+    padding-top: 3px; 
+  }
+
+  /* Specific Card Layouts */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+  }
+
+  .interest-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+  }
+
+  .contact-card {
+    background: var(--surface);
+    border: 1px solid rgba(244, 245, 247, 0.08);
+    border-radius: var(--radius-lg);
+    padding: 40px;
+    display: grid;
+    gap: 32px;
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-warm));
+  }
+
+  .contact-card h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.8rem;
+    margin: 0 0 16px;
+  }
+
+  .contact-card p {
+    color: var(--muted);
+    font-size: 1.1rem;
+    max-width: 500px;
+    margin: 0;
+  }
+
+  .contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: flex-start;
+  }
+
+  /* Media Queries */
+  @media (max-width: 600px) {
+    .contact-card {
+      padding: 24px;
+    }
+    
+    .contact-links {
+      flex-direction: column;
+      width: 100%;
+    }
+    
+    .contact-links .button {
+      width: 100%;
+    }
+  }

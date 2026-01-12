@@ -1,0 +1,67 @@
+---
+interface Props {
+  id: string;
+  class?: string;
+  title?: string;
+  subtitle?: string;
+  isHero?: boolean;
+}
+
+const { id, class: className, title, subtitle, isHero = false } = Astro.props;
+---
+
+<section id={id} class:list={['section', className, { hero: isHero }]}>
+  <div class="container reveal" style={isHero ? undefined : '--delay: 0.1s'}>
+    {
+      (title || subtitle) && (
+        <div class="section-header">
+          {title && <h2>{title}</h2>}
+          {subtitle && <p>{subtitle}</p>}
+        </div>
+      )
+    }
+    <slot />
+  </div>
+</section>
+
+<style>
+  .section {
+    padding: 56px 0;
+    position: relative;
+    scroll-margin-top: 88px;
+  }
+
+  .section:last-of-type {
+    padding-bottom: 8px;
+  }
+
+
+
+  .section-header {
+    margin-bottom: 20px;
+  }
+
+  .section-header h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(1.8rem, 2.2vw, 2.4rem);
+    margin: 0 0 8px;
+  }
+
+  .section-header p {
+    margin: 0;
+    color: var(--muted);
+    max-width: 640px;
+  }
+
+  .hero {
+    padding-top: 40px;
+  }
+
+  /* Container styles needed for context */
+  .container {
+    width: min(1120px, 92vw);
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+  }
+</style>
