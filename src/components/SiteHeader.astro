@@ -168,8 +168,7 @@ const { site } = Astro.props;
     position: relative;
     padding-bottom: 4px;
     white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    min-width: 0;
     transition: color 0.1s ease-out, transform 0.1s ease-out, letter-spacing 0.1s ease-out;
   }
 
@@ -210,10 +209,14 @@ const { site } = Astro.props;
 
     .site-nav {
       width: 100%;
-      overflow-x: auto;
-      padding-bottom: 8px;
-      -webkit-overflow-scrolling: touch;
-      flex-wrap: nowrap;
+      flex-wrap: wrap;
+      overflow-x: hidden;
+      column-gap: 12px;
+      row-gap: 8px;
+    }
+
+    .site-nav a {
+      font-size: 0.82rem;
     }
   }
 </style>
